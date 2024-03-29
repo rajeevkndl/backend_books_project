@@ -35,13 +35,15 @@ API curl for user login and getting token - curl --location 'http://localhost:80
 }"'
 
  4). With this you can now add books with body - {
-    {"books": [
+    '{
+    "books": [
         {
             "title": "testbook1",
             "author": "author1",
             "ISBN": "189124",
             "quantity": 4
         }
-        ]}
+    ]
+}'
 5). user can add the available books in their account and later return it.
         
