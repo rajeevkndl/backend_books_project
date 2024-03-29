@@ -34,8 +34,17 @@ exports.addBook = async (req, res) => {
 
 // get all books api
 exports.getAllBook = async (req, res) => {
+    let {search} = req.query
+    let page = parseInt(req.query.page)|| 0
+    let size = parseInt(req.query.size) || 10
+    let toskip = size * page
+    let filter = {}
+    if (search){
+        filter = {title: {'$regex': `${search}`,'$options': 'i'}}
+    }
+
   try {
-    const bookData = await books.find({}).toArray();
+    const bookData = await books.find(filter).skip(toskip).limit(size).toArray();
     console.log(JSON.parse(JSON.stringify(bookData)));
     return res.json({
       books: bookData,
