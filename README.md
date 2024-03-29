@@ -34,8 +34,10 @@ API curl for user login and getting token - curl --location 'http://localhost:80
     \"password\":\"ab(#cd*9013\"
 }"'
 
- 4). With this you can now add books with body - {
-    '{
+ 4). With this you can now add books with curl - curl --location 'http://localhost:8000/api/book' \
+--header 'X-Auth: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoicmFqZWV2IiwiZW1haWwiOiJyYWplZXZrdW5kaWFsQGdtYWlsLmNvbSIsImlhdCI6MTcxMTY5MDYxMSwiZXhwIjoxNzExNjk0MjExfQ.iONPQQ0We4qo5DH898RHIPgfRWxaPWzCWKViSptDkVw' \
+--header 'Content-Type: application/json' \
+--data '{
     "books": [
         {
             "title": "testbook1",
